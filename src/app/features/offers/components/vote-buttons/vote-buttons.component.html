@@ -1,0 +1,21 @@
+<div class="vote-buttons">
+  <button
+    class="vote-button upvote-button"
+    [class.active]="currentUserVote() === 'up'"
+    (click)="handleVote('up')"
+    [disabled]="!authService.isLoggedIn()"
+  >
+    <span class="vote-icon">👍</span>
+    <span class="vote-text">Upvote</span>
+  </button>
+
+  <button
+    class="vote-button downvote-button"
+    [class.active]="currentUserVote() === 'down'"
+    (click)="handleVote('down')"
+    [disabled]="!authService.isLoggedIn()"
+  >
+    <span class="vote-icon">👎</span>
+    <span class="vote-text">Downvote</span>
+  </button>
+</div>

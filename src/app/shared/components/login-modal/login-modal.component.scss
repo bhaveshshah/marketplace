@@ -1,0 +1,76 @@
+.login-button {
+  border: none;
+  padding: var(--spacing-2) var(--spacing-6);
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.modal-description {
+  margin-bottom: var(--spacing-6);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.user-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border: 2px solid var(--border-secondary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition-base);
+
+  &:hover {
+    border-color: var(--color-primary);
+    background-color: var(--bg-secondary);
+  }
+
+  input[type='radio'] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+
+    &:checked + .user-details {
+      .username {
+        color: var(--color-primary);
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+  }
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  flex: 1;
+
+  .username {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+  }
+
+  .email {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,32 @@
+<button class="login-button" (click)="openModal()">Login</button>
+
+<app-modal
+  [isOpen]="isOpen()"
+  [config]="modalConfig"
+  [primaryButtonText]="'Login'"
+  [secondaryButtonText]="'Cancel'"
+  [primaryButtonDisabled]="isLoginDisabled()"
+  (closeModal)="closeModal()"
+  (primaryAction)="login()"
+  (secondaryAction)="closeModal()"
+>
+  <p class="modal-description">Select a user to login (use arrow keys to navigate):</p>
+  <div class="user-list">
+    @for (user of mockUsers(); track user.id) {
+      <label class="user-option">
+        <input
+          type="radio"
+          name="user"
+          [id]="'user-' + user.id"
+          [value]="user.username"
+          [checked]="selectedUsername() === user.username"
+          (change)="onUserSelect(user.username)"
+        />
+        <div class="user-details">
+          <span class="username">{{ user.username }}</span>
+          <span class="email">{{ user.email }}</span>
+        </div>
+      </label>
+    }
+  </div>
+</app-modal>

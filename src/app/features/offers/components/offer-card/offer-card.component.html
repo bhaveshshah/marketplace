@@ -1,0 +1,25 @@
+<div class="card" [routerLink]="['/offers', offer().id]">
+  <div class="card-image-wrapper">
+    <img [src]="offer().image" [alt]="offer().title" class="card-image" loading="eager" />
+    <div class="category-badge">{{ offer().category }}</div>
+  </div>
+
+  <div class="card-content">
+    <h3 class="card-title">{{ offer().title }}</h3>
+    <p class="card-description">{{ offer().description }}</p>
+
+    <div class="card-footer">
+      <div class="price-section">
+        <span class="price">{{ offer().price | currency }}</span>
+      </div>
+      <div class="votes-section">
+        <span class="votes-icon">👍</span>
+        <span class="votes-count">{{ offer().rating.count }} votes</span>
+      </div>
+    </div>
+
+    <p class="merchant">
+      by <strong>{{ offer().merchantName }}</strong>
+    </p>
+  </div>
+</div>

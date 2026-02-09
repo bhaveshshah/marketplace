@@ -1,0 +1,24 @@
+<div class="offer-page">
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">On Going Amazing offers</h1>
+      <p class="page-subtitle">This season we have some amazing offers going on</p>
+    </div>
+
+    <div class="offers-grid">
+      @for (offer of offerService.offersSortedByVotes(); track offer.id) {
+        <app-offer-card [offer]="offer"></app-offer-card>
+      } @empty {
+        @if (offerService.offers().length === 0) {
+          <div class="empty-state">
+            <p class="empty-text">Loading amazing offers...</p>
+          </div>
+        } @else {
+          <div class="empty-state">
+            <p class="empty-text">No offers available at the moment</p>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</div>

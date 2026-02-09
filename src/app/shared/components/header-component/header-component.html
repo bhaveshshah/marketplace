@@ -1,0 +1,33 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <a routerLink="/offers" class="logo">
+        <span class="logo-icon">🛍️</span>
+        <span class="logo-text">Merchant Marketplace</span>
+      </a>
+
+      <nav class="nav">
+        @if (authService.isLoggedIn()) {
+          <div class="user-menu-wrapper">
+            <button class="user-button" (click)="toggleUserMenu()">
+              <span class="user-icon">👤</span>
+              <span class="user-name">{{ authService.currentUser()?.username }}</span>
+              <span class="dropdown-icon">▼</span>
+            </button>
+
+            @if (showUserMenu()) {
+              <div class="user-menu">
+                <div class="user-info">
+                  <p class="user-email">{{ authService.currentUser()?.email }}</p>
+                </div>
+                <button class="logout-button" (click)="logout()">Logout</button>
+              </div>
+            }
+          </div>
+        } @else {
+          <app-login-modal></app-login-modal>
+        }
+      </nav>
+    </div>
+  </div>
+</header>

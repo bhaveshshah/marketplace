@@ -1,0 +1,53 @@
+@if (offer(); as currentOffer) {
+  <div class="details-page">
+    <div class="container">
+      <div class="breadcrumb">
+        <a routerLink="/offers" class="breadcrumb-link">← Back to Offers</a>
+      </div>
+
+      <div class="details-content">
+        <div class="details-image-section">
+          <img
+            [src]="currentOffer.image"
+            [alt]="currentOffer.title"
+            class="details-image"
+            loading="eager"
+          />
+          <div class="category-badge">{{ currentOffer.category }}</div>
+        </div>
+
+        <div class="details-info-section">
+          <h1 class="details-title">{{ currentOffer.title }}</h1>
+
+          <div class="merchant-info">
+            <span class="merchant-label">Offered by</span>
+            <span class="merchant-name">{{ currentOffer.merchantName }}</span>
+          </div>
+
+          <div class="price-section">
+            <span class="price">{{ currentOffer.price | currency }}</span>
+          </div>
+
+          <div class="votes-info">
+            <span class="votes-icon">👍</span>
+            <span class="votes-text">{{ currentOffer.rating.count }} votes</span>
+          </div>
+
+          <div class="description-section">
+            <h2 class="section-title">Description</h2>
+            <p class="description-text">{{ currentOffer.description }}</p>
+          </div>
+
+          <div class="actions-section">
+            <app-vote-buttons [offerId]="currentOffer.id" />
+
+            <button class="purchase-button" (click)="purchase()">
+              <span class="purchase-icon">🛒</span>
+              <span>Purchase Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
